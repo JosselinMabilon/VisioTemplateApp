@@ -1,0 +1,5 @@
+### AndroidStudio ###
+# Covers files to be ignored for android development using Android Studio.
+
+# Gradle files
+/build

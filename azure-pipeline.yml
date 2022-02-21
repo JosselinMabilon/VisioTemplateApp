@@ -1,0 +1,64 @@
+variables:
+  - group: android_pipeline
+
+pool:
+  name: XXXXXXXXXX
+  demands:
+  - Agent.Name -equals XXXXXXXXXX
+
+trigger: 
+  branches:
+    include: 
+    - develop
+
+steps:
+- task: DownloadSecureFile@1
+  displayName: 'Download secure file'
+  name: 'KeyStoreFile'
+  inputs:
+    secureFile: 'CME_Stage_2021_Android_Dev.p12'
+- task: Gradle@2
+  displayName: 'Gradlew assemble'
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'assemble'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+- task: CmdLine@2
+  displayName: 'Execute zipalign'
+  inputs:
+    script: '/usr/local/share/android-sdk/build-tools/30.0.3/zipalign -p -f -v 4 app/build/outputs/apk/release/app-release-unsigned.apk app-release.apk'
+- task: CmdLine@2
+  displayName: 'Execute apksigner'
+  inputs:
+    script: '/usr/local/share/android-sdk/build-tools/30.0.3/apksigner sign --ks $(KeyStoreFile.secureFilePath) --ks-key-alias $(KeyStoreAlias) --ks-pass pass:$(StorePassword) --key-pass pass:$(KeyPassword) --v3-signing-enabled true app-release.apk'
+- task: CopyFiles@2
+  displayName: 'Copy *.apk to artefact directory'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '$(system.defaultworkingdirectory)/*.apk'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: CopyFiles@2
+  displayName: 'Copy CHANGELOG to artefact directory'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '$(system.defaultworkingdirectory)/**/CHANGELOG.md'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+- task: AppCenterDistribute@3
+  displayName: 'Deploy **/*.apk to Visual Studio App Center'
+  inputs:
+    serverEndpoint: 'XXXXXXXXXX'
+    appSlug: 'XXXXXXXXXX'
+    appFile: '$(build.artifactstagingdirectory)/**/*.apk'
+    releaseNotesOption: file
+    releaseNotesFile: '$(build.artifactstagingdirectory)/CHANGELOG.md'
+    isSilent: false
+

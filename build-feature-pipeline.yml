@@ -1,0 +1,24 @@
+pool:
+  name: XXXXXXXXXX
+  demands:
+  - Agent.Name -equals XXXXXXXXXX
+
+trigger:
+  branches:
+    exclude:
+      - feature/*
+      - develop
+      - master
+
+steps:
+- task: Gradle@2
+  displayName: 'Gradlew assemble'
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'assemble'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+
+

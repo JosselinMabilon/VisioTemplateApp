@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "628841080127",
+    "firebase_url": "https://services-generaux.firebaseio.com",
+    "project_id": "services-generaux",
+    "storage_bucket": "services-generaux.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628841080127:android:f435b467c26a49a5c11f8a",
+        "android_client_info": {
+          "package_name": "com.example.visioglobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628841080127-glp7e0svum6vd53hc8eqja2ip5tmmr0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-S7UYSROodXhHmL2eJphx5Uh4QYVD0xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628841080127-glp7e0svum6vd53hc8eqja2ip5tmmr0m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "628841080127-3ofba486b11id0r9r1oqoctmsrh5pqvn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "orange.SGVisioglobe"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628841080127:android:762714e6376b82cec11f8a",
+        "android_client_info": {
+          "package_name": "com.google.ar.core.examples.java.cloudanchor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628841080127-glp7e0svum6vd53hc8eqja2ip5tmmr0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-S7UYSROodXhHmL2eJphx5Uh4QYVD0xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628841080127-glp7e0svum6vd53hc8eqja2ip5tmmr0m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "628841080127-3ofba486b11id0r9r1oqoctmsrh5pqvn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "orange.SGVisioglobe"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628841080127:android:39d776b597b5c516c11f8a",
+        "android_client_info": {
+          "package_name": "com.stage.visioglobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628841080127-5cs04shf7h32slhrnqf4hjlg1ttfide3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stage.visioglobe",
+            "certificate_hash": "7a6e021b7c5323cd3f1bb0dac62f95244f92aa74"
+          }
+        },
+        {
+          "client_id": "628841080127-glp7e0svum6vd53hc8eqja2ip5tmmr0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-S7UYSROodXhHmL2eJphx5Uh4QYVD0xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628841080127-glp7e0svum6vd53hc8eqja2ip5tmmr0m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "628841080127-3ofba486b11id0r9r1oqoctmsrh5pqvn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "orange.SGVisioglobe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

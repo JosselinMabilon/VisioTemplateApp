@@ -1,0 +1,161 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id "org.jetbrains.kotlin.android"
+    id "kotlin-kapt"
+    id 'com.google.gms.google-services'
+    id "dagger.hilt.android.plugin"
+    id("androidx.navigation.safeargs")
+    id "kotlin-parcelize"
+}
+
+android {
+    compileSdk 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.visioglobe"
+        minSdk 24
+        targetSdk 28
+        versionCode 1
+        versionName "1.0.7"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+        dataBinding true
+        viewBinding true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    aaptOptions {
+        noCompress "tflite"
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    // App
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$junit_test_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+    // Compose
+    implementation("androidx.compose.ui:ui:$compose_version")
+            // Tooling support (Previews, etc.)
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+            // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation("androidx.compose.foundation:foundation:$compose_version")
+            // Accompanist
+    implementation "com.google.accompanist:accompanist-coil:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-insets:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+            // Material Design
+    implementation("androidx.compose.material:material:$compose_version")
+            // Material design icons
+    implementation("androidx.compose.material:material-icons-core:$compose_version")
+    implementation("androidx.compose.material:material-icons-extended:$compose_version")
+            // Activity
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
+    implementation "androidx.activity:activity-ktx:$activity_version"
+            // Integration with observables
+    implementation("androidx.compose.runtime:runtime-livedata:$compose_version")
+    implementation("androidx.compose.runtime:runtime-rxjava2:$compose_version")
+            // ContraintLayout-compose
+    implementation "androidx.constraintlayout:constraintlayout-compose:$constraint_layout_compose"
+            // DataStore
+    implementation "androidx.datastore:datastore-preferences:$compose_data_store"
+
+    // SDK VisioGlobe
+    implementation "com.android.support.constraint:constraint-layout:$constraint_layout"
+    implementation files("libs/VisioMoveEssential.aar")
+
+    implementation "eu.polestar:naosdk:$polestar_version"
+
+    // Firebase
+    // Import the Firebase BoM
+    implementation platform("com.google.firebase:firebase-bom:$firebase_version")
+    // Import the Firestore
+    implementation "com.google.firebase:firebase-firestore"
+    // Import the FirebaseAuth
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    // Import the Firebase Storage
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
+    // Dependency Injection
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_version"
+
+    // Test
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_test_version"
+    testImplementation "androidx.arch.core:core-testing:$core_testing_version"
+        // AssertJ
+    testImplementation "org.assertj:assertj-core:$rootProject.assertj_version"
+        // MockK
+    testImplementation "io.mockk:mockk:$mockk_version"
+
+    // CameraX
+        // Core library
+    implementation "androidx.camera:camera-core:$camerax_version"
+        // Camera 2
+    implementation "androidx.camera:camera-camera2:$camerax_version"
+        // Lifecycle
+    implementation "androidx.camera:camera-lifecycle:$camerax_version"
+        // Preview
+    implementation "androidx.camera:camera-view:$camerax_view_version"
+
+    // Fragment
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+
+    // Navigation Components
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // Security
+    implementation "androidx.security:security-crypto:$security_crypto_version"
+
+    // Google ML Kit
+    implementation "com.google.mlkit:image-labeling-custom:$mlkit_version"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Kotlin Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$kotlin_coroutines_version"
+
+    // Coil
+    implementation "io.coil-kt:coil-compose:$coil_version"
+
+}

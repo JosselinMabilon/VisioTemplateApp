@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/fragment_home_name" />
+    <item
+        android:id="@+id/incidentsFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_warning_24"
+        android:title="@string/fragment_incidents_name" />
+    <item
+        android:id="@+id/adminFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_admin_panel_settings_24"
+        android:title="@string/fragment_admin_name" />
+    <item
+        android:id="@+id/accountFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/fragment_account_name" />
+
+</menu>
